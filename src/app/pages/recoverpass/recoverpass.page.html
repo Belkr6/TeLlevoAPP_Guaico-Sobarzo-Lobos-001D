@@ -1,0 +1,20 @@
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title">
+      Ingresa tu email
+      <p> para recibir tu recuperacion!</p>
+    </ion-title>
+  </div>
+  <div>
+    <ion-item>
+      <label position="floating">Email</label>
+      <ion-input type="email" class="input"></ion-input>
+    </ion-item>
+    <ion-fab vertical="bottom" horizontal="middle">
+      <ion-fab-button (click)="rstPassword(email)">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

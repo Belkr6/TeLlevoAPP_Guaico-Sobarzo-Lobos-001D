@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+    <ion-button (click)="goToActionSheet()">Inicio</ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <ion-card *ngIf="profile">
+    <ion-card-header>
+      <ion-card-title>{{ profile.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Email: {{ profile.email }}</p>
+      <p>Usuario: {{ profile.username }}</p>
+      <p>Rol: {{ profile.role }}</p>
+      <p>Bio: {{ profile.bio }}</p>
+      <p *ngIf="!editing">{{ profile.bio }}</p>
+      <ion-textarea rows="5" *ngIf="editing" [(ngModel)]="bio"></ion-textarea>
+      <ion-button *ngIf="!editing" (click)="startEditing()">Edit Bio</ion-button>
+      <ion-button *ngIf="editing" (click)="saveBio()">Save Bio</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

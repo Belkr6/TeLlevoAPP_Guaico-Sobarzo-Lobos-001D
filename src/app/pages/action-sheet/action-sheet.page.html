@@ -1,0 +1,106 @@
+<ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title style="color:#F7DD72;">Menu </ion-title>  <!-- Menu izquierda -->
+      </ion-toolbar>
+    </ion-header>
+    <!-- Contenidos menu -->
+    <ion-content class="ion-padding">
+      <div class="vertical-container">
+        
+        
+        <button  class="boton-seleccion2" style="color:#F7DD72;" routerLink="/inicio">
+          inicio
+        </button>
+        <button (click)="irARegistro()" class="boton-seleccion2">
+          Registro
+        </button>
+        <button  class="boton-seleccion2" style="color:#F7DD72;" routerLink="/profile">
+          Perfil
+        </button>
+        <button  class="boton-seleccion2" style="color:#F7DD72;" (click)="SignOut()">
+          Cerrar Sesión
+        </button>
+      </div>
+      
+  
+    </ion-content>
+  </ion-menu>
+  <!--Titulo-->
+  <div class="ion-page" id="main-content">
+    <header class="headercolor">
+      <ion-toolbar>
+        <div class="row">
+          
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <img class="tllpp" src="assets/TeLlevoAPP.png" />
+          <div class="userwelcome">
+            <ion-title text="right" class="texto2">
+              <p style="color:#F7DD72;">Bienvenido! {{[profile.name]}}</p>
+            </ion-title>
+          </div>
+        </div>
+      </ion-toolbar>
+    </header>
+    <!-- Contenido -->
+    <div class="espacio-vacio5">
+      <head>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bte4cX-Ex45h9jvIm0CRus_hGNyH_Ww"></script>
+      </head>
+    
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53116.30938469969!2d-71.24508797302734!3d-33.689036395306616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966300003f7690e5%3A0x582872cdf30d9dfe!2sMelipilla%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1697506072129!5m2!1ses!2scl"
+        width="100%" 
+        height="150%" 
+        frameborder="0" 
+        style="border: none;outline: none;margin: 0" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </div>
+    <ion-content class="ion-padding" scrollEvents="true">
+    
+      <div class="ion-text-center" style="margin-bottom: -15%;">
+        
+      </div>
+
+      <div class="contenedorprof">
+        <div class="ion-text-center">
+        
+        <div class="ion-text-center">
+          <div *ngIf="role === 'Estudiante'">
+            <!-- Content for Estudiante users -->
+            <!-- Modal -->
+                  <ion-modal [isOpen]="isModalOpen">
+                    <ng-template>
+                      <header>
+                        <ion-toolbar>
+                          <ion-title class="texto2" style="color:#F7DD72;"></ion-title>
+                          <ion-buttons slot="end">
+                            <ion-button class="texto2" style="color:#F7DD72;" (click)="setOpen(false)">Cerrar</ion-button>
+                          </ion-buttons>
+                        </ion-toolbar>
+                      </header>
+                      <ion-content class="ion-padding">
+                        <p class="texto2" style="color:#F7DD72;">No hay pasajeros</p>
+                      </ion-content>
+                    </ng-template>
+                  </ion-modal>
+                  <app-programar-viaje></app-programar-viaje>
+      
+          </div>
+          <div *ngIf="role === 'Conductor'">
+            <!-- Content for Conductor users -->
+            <div class="ion-text-center"><button class="boton-seleccion"shape="round" expand="block" (click)="setOpen(true)">¿Establecer un viaje?</button></div>
+          </div>
+        </div></div>
+      
+      
+
+
+  
+    
+    
